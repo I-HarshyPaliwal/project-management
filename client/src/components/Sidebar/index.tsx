@@ -6,12 +6,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { setIsSidebarCollapsed } from '@/state';
 import { useAppDispatch, useAppSelector } from '@/app/redux';
+import { useGetProjectsQuery } from '@/state/api';
 
 
 
 const Sidebar = () => {
     const [showProjects, setShowProjects] = useState(true);
     const [showPriority, setShowPriority] = useState(true);
+    const { data: projects } = useGetProjectsQuery();
     const dispatch = useAppDispatch();
 
     const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
@@ -85,7 +87,7 @@ const Sidebar = () => {
               </button>
 
               {/* PROJECTS LIST */}
-              {/* {showProjects &&
+              {showProjects &&
                   projects?.map((project) => (
                       <SidebarLink
                           key={project.id}
@@ -94,7 +96,7 @@ const Sidebar = () => {
                           href={`/projects/${project.id}`}
                       />
                   ))
-              } */}
+              }
 
               {/* PRIORITIES LINKS */}
               <button
