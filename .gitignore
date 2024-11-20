@@ -1,7 +1,9 @@
 client/node_modules/
 server/node_modules/
 client/dist/
+client/vars/
 server/dist/
+server/vars/
 client/.env/
 server/.env/
 client/.next/
