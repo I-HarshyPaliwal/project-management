@@ -4,8 +4,9 @@ client/dist/
 client/vars/
 server/dist/
 server/vars/
-client/.env/
-server/.env/
+client/.env
+client/.env.local
+server/.env
 client/.next/
 Notes/
 .DS_Store
