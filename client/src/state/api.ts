@@ -99,6 +99,7 @@ export const api = createApi({
           if (!session) throw new Error("No session found");
           const { userSub } = session;
           const { accessToken } = session.tokens ?? {};
+          
 
           const userDetailsResponse = await fetchWithBQ(`users/${userSub}`);
           const userDetails = userDetailsResponse.data as User;
@@ -179,14 +180,3 @@ export const {
   useGetTasksByUserQuery,
   useGetAuthUserQuery,
 } = api;
-
-
-// Temp
-// export const api = createApi({
-//   baseQuery: fetchBaseQuery({baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL}),
-//   reducerPath: "api",
-//   tagTypes: [],
-//   endpoints: (build)=> ({}),
-// })
-
-export const { } = api;
