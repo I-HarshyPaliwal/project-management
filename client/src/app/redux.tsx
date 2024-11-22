@@ -60,7 +60,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const makeStore = () => {
   return configureStore({
     reducer: persistedReducer,
-    middleware: () => new Tuple(api.middleware),
+    // middleware: () => new Tuple(api.middleware),
   
     // middleware: (getDefaultMiddleware) =>
     //   getDefaultMiddleware({
@@ -69,12 +69,11 @@ export const makeStore = () => {
     //     },
     //   })
     
-    // middleware: (getDefaultMiddleware) =>
-    //   getDefaultMiddleware({
-    //     serializableCheck: {
-    //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    //     },
-    //   }).concat(api.middleware)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }).concat(api.middleware),
   });
 };
 
