@@ -3,8 +3,8 @@ import React from "react";
 
 const Settings = () => {
   const userSettings = {
-    username: "johndoe",
-    email: "john.doe@example.com",
+    username: "Harsh",
+    email: "harshpaliwal0109@gmail.com",
     teamName: "Development Team",
     roleName: "Developer",
   };
